@@ -1,7 +1,9 @@
 class Scrabble
+  attr_reader :word
 
-  def score(word)
-    1
+  def initialize
+    @word = word
+    @score = 0
   end
 
   def point_values
@@ -15,4 +17,24 @@ class Scrabble
       "Y"=>4, "Z"=>10
     }
   end
+
+  def score(word)
+    if word.nil?
+      @score
+    else
+      letters = word.upcase.split("")
+
+      letters.each do |letter|
+        @score += point_values[letter]
+      end
+    @score
+    end
+  end
+
+  def score_with_multipliers(word, letter_multiplier, word_multiplier =1)
+    letters = word.upcase.split("")
+    
+  end
+
+
 end
